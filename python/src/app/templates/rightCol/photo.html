@@ -1,0 +1,35 @@
+<div class="photo_info">
+	{% if photo %}
+		<div class="title">General</div>
+		<div class="content">
+			{% if photo.getAlbum %}
+				<div>Category: <em><a href="{{ photo.getAlbum.getCategory.getPermLink }}">{{ photo.getAlbum.getCategory.name }}</a></em></div>
+				<div>From: <em><a href="{{ photo.getAlbum.getPermLink }}">{{ photo.getAlbum.name }}</a></em></div>
+			{% endif %}
+			{% if photo.name %}
+				<div>Name: <em>{{ photo.name }}</em></div>
+			{% endif %}
+			{% if photo.description %}
+				<div>Description: <em>{{ photo.description }}</em></div>
+			{% endif %}
+		</div>
+		
+		<div class="title">Photo Information</div>
+		<div class="content" id="exifData">
+			Loading data...
+			<script type="text/javascript">
+				loadExif("img{{ photo.key.id }}", "exifData");
+			</script>
+		</div>
+	{% endif %}
+	
+	{% if isAdmin %}
+		<div class="title">Admin Functions</div>
+		<div class="content">
+			<ul>
+				<li><a class="button" href="{{ photo.getEditLink }}">Edit Photo</a></li>
+				<li><a class="button" href="/admin?action=delphoto&id={{ photo.key.id }}" onclick="return false;">Delete Photo</a></li>
+			</ul>
+		</div>
+	{% endif %}
+</div>

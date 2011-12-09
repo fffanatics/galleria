@@ -1,0 +1,27 @@
+{% include "header.html" %} 
+
+{% if album %}
+	<div class="album clear">
+		<h2>{{ album.name }}</h2>
+		<div class="paddingContent">
+			{% for photo in album.getPhotos %}
+				{% include "components/photoListing.html" %}
+			{% endfor %} 
+		</div>
+		
+		{% if isAdmin %}
+		<div class="clear center">
+			<a class="button" href="{{ album.getEditLink }}">Edit Album</a>
+		</div>
+		{% endif %}
+	</div>
+{% else %}
+	<div class="clear">
+		<h2>No Album Found</h2>
+		<div>
+			<a class="button" href="/">Go Home</a>
+		</div>
+	</div>
+{% endif %}
+
+{% include "footer.html" %}

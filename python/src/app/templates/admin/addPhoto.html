@@ -1,0 +1,41 @@
+<h2>Add New Photo</h2>
+
+<div class="paddingContent">
+	{% if albums.count %}
+	<form action="{{ uploadUrl }}" enctype="multipart/form-data" method="post">
+		<div class="field">
+			<label>Name</label>
+			<div class="value">
+				<input type="text" name="name" />
+			</div>
+		</div>
+		<div class="field">
+			<label>Description</label>
+			<div class="value">
+				<textarea name="description"></textarea>
+			</div>
+		</div>
+		<div class="field">
+			<label>Album</album>
+			<div class="value">
+				<select name="albumId">
+					{% for album in albums %}
+					<option value="{{ album.key.id }}">{{ album.name }}</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+		<div class="field">
+			<input type="file" name="image" />
+		</div>
+		<div class="buttonbar">
+			<input type="hidden" name="action" value="addphoto" />
+			<input type="submit" name="submit" value="Upload Picture" />
+		</div>
+	</form>
+	{% else %}
+	<div>
+		You need to create an album first. Please go to the <a href="/admin?action=addalbum">add album</a> page.
+	</div>
+	{% endif %}
+</div>

@@ -1,0 +1,14 @@
+<div class="album">
+	<div class="imageHolder">
+		<a href="{{ album.getPermLink }}">
+			{% if album.getThumbnail %}
+				<img class="albumThumb" src="{{ album.getThumbnail.getThumbLink }}" />
+			{% else %}
+				<img src="/images/default-photo.jpg" />
+			{% endif %}
+		</a>
+	</div>
+	<h1><a href="{{ album.getPermLink }}">{{ album.name }}</a></h1>
+	<h2>{{ album.created|date }}</h2>
+	<h2>photos: {{ album.getPhotos.count }}</h2>
+</div>

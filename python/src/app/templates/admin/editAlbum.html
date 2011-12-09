@@ -1,0 +1,34 @@
+<h2>Edit Album</h2>
+
+<div class="paddingContent">
+	<form action="/admin" method="post">
+		<div class="field">
+			<label>Name</label>
+			<div class="value">
+				<input type="text" name="name" value="{{ album.name }}" />
+			</div>
+		</div>
+		<div class="field">
+			<label>Description</label>
+			<div class="value">
+				<textarea name="description">{{ album.description }}</textarea>
+			</div>
+		</div>
+		<div class="field">
+			<label>Category</album>
+			<div class="value">
+				<select name="catId">
+					{% for category in categories %}
+					<option value="{{ category.key.id }}" {% ifequal category.key.id album.catId %}selected="selected"{% endifequal %}>{{ category.name }}</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+		<div class="buttonbar">
+			<input type="hidden" name="id" value="{{ album.key.id }}" />
+			<input type="hidden" name="action" value="editalbum" />
+			<input type="submit" name="submit" value="Save Changes" /> |
+			<a href="/admin?action=delalbum&id={{ album.key.id }}">Delete Album</a>
+		</div>
+	</form>
+</div>

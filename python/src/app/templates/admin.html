@@ -1,0 +1,34 @@
+{% include "header.html" %} 
+<div class="paddingContent">
+	{% if action %}
+		{% ifequal action "addphoto" %}
+			{% include "admin/addPhoto.html" %}
+		{% endifequal %}
+		{% ifequal action "addalbum" %}
+			{% include "admin/addAlbum.html" %}
+		{% endifequal %}
+		{% ifequal action "editphoto" %}
+			{% include "admin/editPhoto.html" %}
+		{% endifequal %}
+		{% ifequal action "editalbum" %}
+			{% include "admin/editAlbum.html" %}
+		{% endifequal %}
+		{% ifequal action "addcategory" %}
+			{% include "admin/addCategory.html" %}
+		{% endifequal %}
+		{% ifequal action "editcategory" %}
+			{% include "admin/editCategory.html" %}
+		{% endifequal %}
+		<div class="paddingContent">
+			<a href="/admin">Return to Admin Page</a>
+		</div>
+	{% else %}
+		<h2>Options</h2>
+		<ul>
+			<li><a href="admin?action=addphoto">Add New Photo</a></li>
+			<li><a href="admin?action=addalbum">Add New Album</a></li>
+			<li><a href="admin?action=addcategory">Add New Category</a></li>
+		</ul>
+	{% endif %}
+</div>
+{% include "footer.html" %}

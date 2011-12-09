@@ -1,0 +1,21 @@
+{% include "header.html" %} 
+
+{% if photos and hasPhotos %}
+	<div class="album clear">
+		<h2>Search Results</h2>
+		<div class="paddingContent">
+			{% for photo in photos %}
+				{% include "components/photoListing.html" %}
+			{% endfor %} 
+		</div>
+	</div>
+{% else %}
+	<div class="clear">
+		<h2>No Results Found</h2>
+		<div>
+			<a class="button" href="/">Go Home</a>
+		</div>
+	</div>
+{% endif %}
+
+{% include "footer.html" %}

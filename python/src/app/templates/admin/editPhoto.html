@@ -1,0 +1,34 @@
+<h2>Edit Photo</h2>
+
+<div class="paddingContent">
+	<form action="/admin" method="post">
+		<div class="field">
+			<label>Name</label>
+			<div class="value">
+				<input type="text" name="name" value="{{ photo.name }}" />
+			</div>
+		</div>
+		<div class="field">
+			<label>Description</label>
+			<div class="value">
+				<textarea name="description">{{ photo.description }}</textarea>
+			</div>
+		</div>
+		<div class="field">
+			<label>Album</album>
+			<div class="value">
+				<select name="albumId">
+					{% for album in albums %}
+					<option value="{{ album.key.id }}" {% ifequal album.key.id photo.albumId %}selected="selected"{% endifequal %}>{{ album.name }}</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+		<div class="buttonbar">
+			<input type="hidden" name="id" value="{{ photo.key.id }}" />
+			<input type="hidden" name="action" value="editphoto" />
+			<input type="submit" name="submit" value="Save Changes" /> |
+			<a href="/admin?action=delphoto&id={{ photo.key.id }}">Delete Photo</a>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,37 @@
+{% include "header.html" %} 
+
+{# arrow navigation #}
+<div class="padding_content center">
+	{% if prev %}
+		<a href="#" onclick="prevPhoto(); return false;"><img class="icon" src="/images/icons/arrow_left.png" /></a>
+	{% else %}
+		<img class="icon inactive" src="/images/icons/arrow_left.png" />
+	{% endif %}
+	{% if next %}
+		<a href="#" onclick="nextPhoto(); return false;"><img class="icon" src="/images/icons/arrow_right.png" /></a>
+	{% else %}
+		<img class="icon inactive" src="/images/icons/arrow_right.png" />
+	{% endif %}
+</div>
+
+{# display the actual photo #}
+{% if photo %}
+	<div class="singlephoto">
+		<div class="paddingContent">
+			<div class="imageHolder">
+				{% if next %}<a href="#" onclick="nextPhoto(); return false;">{% endif %}
+				<img src="{{ photo.getImageLink }}" id="img{{ photo.key.id }}" exif="true" />
+				{% if next %}</a>{% endif %}
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+{# additional javascript required for the photo page #}
+<script type="text/javascript" src="/js/photo.js"></script>
+<script type="text/javascript">
+	{% if prev %}g_prevUrl="{{ prev.getPermLink }}";{% endif %}
+	{% if next %}g_nextUrl="{{ next.getPermLink }}";{% endif %}
+</script>
+
+{% include "footer.html" %}

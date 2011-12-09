@@ -1,0 +1,32 @@
+<h2>Add New Album</h2>
+
+<div class="paddingContent">
+	<form action="/admin" method="post">
+		<div class="field">
+			<label>Name</label>
+			<div class="value">
+				<input type="text" name="name" />
+			</div>
+		</div>
+		<div class="field">
+			<label>Description</label>
+			<div class="value">
+				<textarea name="description"></textarea>
+			</div>
+		</div>
+		<div class="field">
+			<label>Category</album>
+			<div class="value">
+				<select name="catId">
+					{% for category in categories %}
+					<option value="{{ category.key.id }}">{{ category.name }}</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+		<div class="buttonbar">
+			<input type="hidden" name="action" value="addalbum" />
+			<input type="submit" name="submit" value="Create Album" />
+		</div>
+	</form>
+</div>

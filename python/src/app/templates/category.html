@@ -1,0 +1,20 @@
+{% include "header.html" %} 
+
+{% if category %}
+	<div class="category clear">
+		<h2>{{ category.name }}</h2>
+		<div class="paddingContent mainPage">
+			{% for album in category.getAlbums %}
+				{% include "components/albumListing.html" %}
+			{% endfor %} 
+		</div>
+		
+		{% if isAdmin %}
+		<div class="clear center">
+			<a class="button" href="{{ category.getEditLink }}">Edit Category</a>
+		</div>
+		{% endif %}
+	</div>
+{% endif %}
+
+{% include "footer.html" %}

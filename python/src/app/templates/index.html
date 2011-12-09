@@ -1,0 +1,16 @@
+{% include "header.html" %} 
+
+<div class="mainPage">
+{% for category in categories %}
+	<div class="category clear">
+		<h1 class="category">{{ category.name }}
+		<div class="clear">
+		{% for album in category.getAlbums %}
+			{% include "components/albumListing.html" %}
+		{% endfor %}
+		</div>
+	</div>
+{% endfor %}
+</div>
+
+{% include "footer.html" %}

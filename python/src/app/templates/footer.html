@@ -1,0 +1,39 @@
+					</td>
+					<td class="right">
+						{% if rightCol %}
+							{% include rightCol %}
+						{% else %}
+							{% include "rightCol/default.html" %}
+						{% endif %}
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div class="center footer_notes">
+			<div class="first">&copy;2011 Joel Poloney</div>
+			<div><a href="http://joel.poloney.com/blog" target="_blank">blog</a></div>
+			<div><a href="http://www.facebook.com/jpoloney" target="_blank">facebook</a></div>
+			<div class="last"><a href="http://twitter.com/fffanatics" target="_blank">twitter</a></div>
+		</div>
+				
+		{# Google Analytics #}
+		<script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+            try {
+                var pageTracker = _gat._getTracker("UA-12260759-1");
+                pageTracker._trackPageview();
+            } catch(err) {}
+        </script>
+        
+        {# Make Square Thumbs #}
+        <script type="text/javascript">
+			$(function(){
+				$(".albumThumb").load(function(){$(this).sqrop(120)})
+			})
+		</script>
+	</body>
+</html>	

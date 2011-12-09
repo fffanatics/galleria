@@ -1,0 +1,32 @@
+<h2>Search</h2>
+	<div class="content search">
+	<form action="/search" method="get">
+		<input type="text" name="s" {% if term %}value="{{ term }}"{% endif %} />
+	</form>
+</div>
+				
+{% if recentAlbums %}
+<h2>Latest Albums</h2>
+	<div class="content">
+	<ul>
+		{% for album in recentAlbums %}
+			<li><a href="{{ album.getPermLink }}">{{ album.name }}</a></li>
+		{% endfor %}
+	</ul>
+</div>
+{% endif %}
+			
+<h2>Categories</h2>
+<div class="content">
+	<ul>
+		{% for category in categories %}
+			<li><a href="{{ category.getPermLink }}">{{ category.name }}</a></li>
+		{% endfor %}
+	</ul>
+</div>
+
+<h2>Statistics</h2>
+<div class="content">
+	<div>Photos: {{ numPhotos }}</div>
+	<div>Albums: {{ numAlbums }}</div>
+</div>

@@ -1,0 +1,7 @@
+<div class="photo">
+	{% if photo.thumbnail %}
+	<div class="imageHolder">
+		<a href="{{ photo.getPermLink }}"><img class="albumThumb" src="{{ photo.getThumbLink }}" /></a>
+	</div>
+	{% endif %}
+</div>

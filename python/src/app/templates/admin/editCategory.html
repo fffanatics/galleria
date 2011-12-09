@@ -1,0 +1,24 @@
+<h2>Edit Category</h2>
+
+<div class="paddingContent">
+	<form action="/admin" method="post">
+		<div class="field">
+			<label>Name</label>
+			<div class="value">
+				<input type="text" name="name" value="{{ category.name }}" />
+			</div>
+		</div>
+		<div class="field">
+			<label>Description</label>
+			<div class="value">
+				<textarea name="description">{{ category.description }}</textarea>
+			</div>
+		</div>
+		<div class="buttonbar">
+			<input type="hidden" name="id" value="{{ category.key.id }}" />
+			<input type="hidden" name="action" value="editcategory" />
+			<input type="submit" name="submit" value="Save Changes" /> |
+			<a href="/admin?action=delcategory&id={{ album.key.id }}">Delete Category</a>
+		</div>
+	</form>
+</div>

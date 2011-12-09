@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>{{ title|default:"Home" }} - Joel's Galleria</title>
+		
+		<link href="/css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="/css/main.css" rel="stylesheet" type="text/css" />
+		
+		<script type="text/javascript" src="/js/jquery-1.5.1.min.js"></script>
+		<script type="text/javascript" src="/js/jquery.sqrop.js"></script>
+		<script type="text/javascript" src="/js/jquery.exif.js"></script>
+		<script type="text/javascript" src="/js/exif.js"></script>
+	</head>
+	<body>
+		<div class="header">
+			<div class="centeredContent paddingContent">
+				{% if isAdmin %}
+					<a class="button" href="/admin">Admin Panel</a>
+				{% endif %}
+				<div><a href="/"><img class="logo" src="/images/galleria-logo.png" /></a></div>
+				
+				<div class="clear"></div>
+			</div>
+		</div>	
+		<div class="centeredContent">
+			{% if status %}
+				<div class="noticebox">
+					{{ status }}
+				</div>
+			{% endif %}
+			<table class="main">
+				<tr>
+					<td class="left">	
