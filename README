@@ -2,9 +2,21 @@ This project is an attempt to make a photo gallery website from
 various different types of programming languages. The 6 languages
 that I am currently working with are the following:
 
-1. Python
-2. PHP
-3. Ruby
-4. Node.js/HTML5
+1. Python (Google AppEngine)
+2. PHP (Native/Heroku)
+3. Ruby (Native/Heroku)
+4. Node.js/HTML5 (Native/Heroku)
 5. iOS (Objective C)
 6. Android (Java)
+
+My goals are to learn the above languages and platforms while
+implementing the following features:
+
+1. Displaying of albums
+2. Displaying of pictures inside albums
+3. Upload interface
+4. Admin interface
+5. Meta data about photos (EXIF)
+6. Basic views/commenting/rating system
+7. Optimized loading/viewing
+8. Similar functionality to Picasaweb
